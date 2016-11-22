@@ -1,0 +1,10 @@
+node_modules
+package
+
+demo/platforms
+demo/lib
+demo/node_modules
+
+*.tgz
+*.log
+*.DS_Store

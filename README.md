@@ -1,13 +1,25 @@
 # nativescript-swiper
+
+[![npm](https://img.shields.io/npm/v/nativescript-swiper.svg)](https://www.npmjs.com/package/nativescript-swiper)
+[![npm](https://img.shields.io/npm/dt/nativescript-swiper.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-swiper)
+
+
 A NativeScript plugin for slide functionality on ios platform,based on ios native UIScrollView,quick response and high availability
 
-## Why not android?
+## Why not android
 As you know,slide functionality can made by "viewPager" component in native android devolop.And nativescript "TabView" component in android platform is a combination of a TabLayout widget and a ViewPager widget.So we can use nativescript "TabView" component as a slide by remove the title tab :`tabview._tabLayout.setVisibility(android.view.View.GONE);`
 
 There is a discuss about this question: [TabView without the tabs](http://stackoverflow.com/questions/39019146/tabview-without-the-tabs/39025288#39025288)
 
 ### Screenshot:
 [<img src="screenshot/ScreenShot.png" width = "50%" />](https://www.youtube.com/embed/A2QqrXOESVA)
+
+## Installation
+`tns plugin add nativescript-swiper`
+
+
+## Usage
+`xmlns:Swiper="nativescript-swiper"`
 
 
 ## Example Usage:
