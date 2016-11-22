@@ -1,0 +1,31 @@
+{
+  "name": "nativescript-swiper",
+  "main": "nativescript-swiper.js",
+  "version": "0.0.1",
+  "nativescript": {
+    "platforms": {
+      "ios": "2.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imwalson/nativescript-swiper.git"
+  },
+  "keywords": [
+    "nativescript",
+    "swiper",
+    "slides",
+    "slide",
+    "swipe slides"
+  ],
+  "author": {
+    "name": "Wu Yuxu",
+    "email": "stephenimwalson@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imwalson/nativescript-swiper/issues"
+  },
+  "homepage": "https://github.com/imwalson/nativescript-swiper",
+  "readmeFilename": "README.md"
+}
