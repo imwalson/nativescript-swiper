@@ -12,7 +12,7 @@ As you know,slide functionality can made by "viewPager" component in native andr
 There is a discuss about this question: [TabView without the tabs](http://stackoverflow.com/questions/39019146/tabview-without-the-tabs/39025288#39025288)
 
 ### Screenshot:
-[<img src="screenshot/ScreenShot.png" width = "50%" />](https://www.youtube.com/embed/A2QqrXOESVA)
+[<img src="screenshot/ScreenShot.png" width = "50%" />](https://www.youtube.com/embed/IIpDJqJ31Qw)
 
 ## Installation
 `tns plugin add nativescript-swiper`
