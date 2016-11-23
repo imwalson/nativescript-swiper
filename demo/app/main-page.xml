@@ -1,61 +1,11 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" 
-      navigatedTo="onPageNavigatedTo" 
-      xmlns:Swiper="nativescript-swiper" >
-      <GridLayout rows="*,*,50">
-          <Swiper:SwiperContainer 
-                    id="swiper-container"
-                    change="onChanged" 
-                    cancell="onCancelled" 
-                    start="onStart" 
-                    finish="onFinished">
-              <Swiper:SwiperWrapper id="swiper-wrapper">
-                  <Swiper:SwiperSlide class="bg-blue" height="100%"  verticalAlignment="center">
-                      <Label text="Static Panel 1" color="#fff" textWrap="true" verticalAlignment="center" horizontalAlignment="center" />
-                  </Swiper:SwiperSlide>
-                  <Swiper:SwiperSlide class="bg-green" height="100%"  verticalAlignment="center">
-                      <Label text="Static Panel 2" color="#fff" textWrap="true" verticalAlignment="center" horizontalAlignment="center" />
-                  </Swiper:SwiperSlide>
-                  <Swiper:SwiperSlide class="bg-silver" height="100%"  verticalAlignment="center">
-                      <ScrollView>
-                          <StackLayout height="1000">
-                              <Label text="this is a Panel with ScrollView" textWrap="true" margin="40" />
-                              <Label text="Hold tight - this is our biggest release ever. A lot of new features and polish were done in the last 2 months!
-
-With 360+ plugins for NativeScript it is clear that the community is now producing much more code than the core team. This is a huge milestone for every open source project. Thank you everyone for all the contributions and plugin work!
-
-Below you will see the major highlights of the core framework release and the work that was done by the community.
-
-30+ new code examples of common mobile screens
-
-We want to help you get started with all the framework features and to make you more productive when you design your applications. To help with that, our code samples project received a major update with 30+ new code samples, ready to use and written by the core team. These code samples contain completely designed screens that address common mobile screens and functionality. Just copy and paste the code and you are ready to go." textWrap="true" />
-                          </StackLayout>
-                      </ScrollView>
-                  </Swiper:SwiperSlide>
-                  <Swiper:SwiperSlide class="bg-red" height="100%"  verticalAlignment="center">
-                      <Label text="Static Panel 3" color="#fff" textWrap="true" verticalAlignment="center" horizontalAlignment="center" />
-                  </Swiper:SwiperSlide>
-                  <Swiper:SwiperSlide class="bg-yellow" height="100%"  verticalAlignment="center">
-                      <Label text="dynamically add and remove slides" color="#fff" textWrap="true" verticalAlignment="center" horizontalAlignment="center" />
-                      <Button text="tap to add slide" tap="onBtnTap" margin="20" />
-                  </Swiper:SwiperSlide>
-              </Swiper:SwiperWrapper>
-          </Swiper:SwiperContainer>
-          <Swiper:SwiperContainer row="1" id="swiper-container2">
-              <Repeater items="{{ items }}">
-                  <Repeater.itemsLayout>
-                      <Swiper:SwiperWrapper id="swiper-wrapper2" />
-                  </Repeater.itemsLayout>
-                  <Repeater.itemTemplate>
-                      <Swiper:SwiperSlide height="100%" verticalAlignment="center">
-                          <Label text="{{ 'Panel in Repeater ' + ($value + 1) }}" color="#000" textWrap="true" verticalAlignment="center" horizontalAlignment="center" />
-                      </Swiper:SwiperSlide>
-                  </Repeater.itemTemplate>
-              </Repeater>
-          </Swiper:SwiperContainer>        
-          <GridLayout row="2" columns="*,*,*" class="bg-silver">
-              <Button col="0" text="previousSlide" tap="previousSlide" />
-              <Button col="1" text="nextSlide" tap="nextSlide" />
-              <Button col="2" text="goToSlide 2" tap="goToSlide2" />
-          </GridLayout>
-      </GridLayout>
+      navigatedTo="onPageNavigatedTo"  >
+      <ScrollView>
+         <StackLayout>
+            <Button class="btn" text="sample usage" nav="sample-usage" tap="goto" />
+            <Button class="btn" text="work with Repeater" nav="with-repeater" tap="goto" />
+            <Button class="btn" text="android like tabview" nav="tab-view" tap="goto" />
+            <Button class="btn" text="intro slides with indicators" nav="intro-slides" tap="goto" />
+         </StackLayout> 
+      </ScrollView>
 </Page>

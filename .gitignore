@@ -3,6 +3,7 @@ package
 
 demo/platforms
 demo/lib
+demo/.DS_Store
 demo/node_modules
 
 *.tgz

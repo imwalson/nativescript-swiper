@@ -1,0 +1,43 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+      navigatedTo="onPageNavigatedTo" 
+      xmlns:Swiper="nativescript-swiper" >
+    <!--ios tabview-->
+    <GridLayout row="1" rows="55,*">
+        <!--tab titles-->
+        <GridLayout row="0" rows="52,3" columns="*,*,*" class="tab-top">
+            <!--title 1-->
+            <StackLayout row="0" col="0" data-index="0" tap="switchTab" verticalAlignment="center" horizontalAlignment="center">
+                <Label text="title 1" class="{{ (tabIndex == 0) ? 'tab-text active' : 'tab-text' }}" textWrap="false" />
+            </StackLayout>
+            <!--title 2-->
+            <StackLayout row="0" col="1" data-index="1" tap="switchTab" verticalAlignment="center" horizontalAlignment="center">
+                <Label text="title 2" class="{{ (tabIndex == 1) ? 'tab-text active' : 'tab-text' }}" textWrap="false" />
+            </StackLayout>
+            <!--title 3-->
+            <StackLayout row="0" col="2" data-index="2" tap="switchTab" verticalAlignment="center" horizontalAlignment="center">
+                <Label text="title 3" class="{{ (tabIndex == 2) ? 'tab-text active' : 'tab-text' }}" textWrap="false" />
+            </StackLayout>
+            <!--indicators-->
+            <StackLayout row="1" col="0" class="tab-indicators" translateX="{{ indicatorX }}"/>
+        </GridLayout>
+
+        <!--tab content-->
+        <Swiper:SwiperContainer 
+                    row="1"
+                    id="swiper-container"
+                    change="onChanged"
+                    scroll="onScroll" >
+            <Swiper:SwiperWrapper id="swiper-wrapper">
+                <Swiper:SwiperSlide class="tab-item">
+                    <Label text="tab 1 content" textWrap="true" horizontalAlignment="center" />
+                </Swiper:SwiperSlide>
+                <Swiper:SwiperSlide class="tab-item">
+                    <Label text="tab 2 content" textWrap="true" horizontalAlignment="center" />
+                </Swiper:SwiperSlide>
+                <Swiper:SwiperSlide class="tab-item">
+                    <Label text="tab 3 content" textWrap="true" horizontalAlignment="center" />
+                </Swiper:SwiperSlide>
+            </Swiper:SwiperWrapper>
+        </Swiper:SwiperContainer>  
+    </GridLayout> 
+</Page>

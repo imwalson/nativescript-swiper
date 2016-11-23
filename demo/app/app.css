@@ -30,6 +30,55 @@ components that have the btn class name.
     background-color: silver;
 }
 
+.btn {
+	margin: 10 40;
+	padding: 15;
+	border-radius: 5;
+	color: #2196f3;
+	background-color: transparent;
+	border-width: 1;
+	border-style: solid;
+	border-color: #2196f3;
+}
+
+.tab-top  {
+    background-color: #333333;
+}
+.tab-top .tab-text  {
+    font-size: 16;
+    vertical-align: center;
+    horizontal-align: center;
+    color: #b7b7b7;
+}
+.tab-top .tab-text.active  {
+    color: #fff;
+}
+.tab-top .tab-indicators {
+    height: 3;
+    width: 100%;
+    background-color: #80BD01;
+}
+.tab-item {
+    background-color: #fff;
+	vertical-align: center;
+    horizontal-align: center;
+}
+
+.indicators-wrapper {
+	vertical-align: bottom;
+    horizontal-align: center;
+	margin-bottom: 40;
+}
+.indicators-wrapper .dot {
+	background-color: #b7b7b7;
+	width: 8;
+	height: 8;
+	border-radius: 4;
+	margin: 6;
+}
+.indicators-wrapper .dot.active {
+	background-color: #000000;
+}
 /*
 In many cases you may want to use the NativeScript core theme instead
 of writing your own CSS rules. For a full list of class names in the theme

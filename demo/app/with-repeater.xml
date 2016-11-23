@@ -1,0 +1,23 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+      navigatedTo="onPageNavigatedTo" 
+      xmlns:Swiper="nativescript-swiper" >
+      <GridLayout rows="*,50">
+          <Swiper:SwiperContainer row="0" id="swiper-container">
+              <Repeater items="{{ items }}">
+                  <Repeater.itemsLayout>
+                      <Swiper:SwiperWrapper id="swiper-wrapper" />
+                  </Repeater.itemsLayout>
+                  <Repeater.itemTemplate>
+                      <Swiper:SwiperSlide height="100%" verticalAlignment="center">
+                          <Label text="{{ 'Panel in Repeater ' + ($value + 1) }}" color="#000" textWrap="true" verticalAlignment="center" horizontalAlignment="center" />
+                      </Swiper:SwiperSlide>
+                  </Repeater.itemTemplate>
+              </Repeater>
+          </Swiper:SwiperContainer>        
+          <GridLayout row="1" columns="*,*,*" class="bg-silver">
+              <Button col="0" text="previousSlide" tap="previousSlide" />
+              <Button col="1" text="nextSlide" tap="nextSlide" />
+              <Button col="2" text="goToSlide 2" tap="goToSlide2" />
+          </GridLayout>
+      </GridLayout>
+</Page>

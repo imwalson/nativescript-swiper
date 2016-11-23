@@ -29,13 +29,13 @@ var SwiperSlide = (function (_super) {
 }(stack_layout_1.StackLayout));
 exports.SwiperSlide = SwiperSlide;
 
-var UIScrollViewDelegateImpl = (function (_super) {
-    __extends(UIScrollViewDelegateImpl, _super);
-    function UIScrollViewDelegateImpl() {
+var UIScrollViewDelegateSwiper = (function (_super) {
+    __extends(UIScrollViewDelegateSwiper, _super);
+    function UIScrollViewDelegateSwiper() {
         _super.apply(this, arguments);
     }
-    UIScrollViewDelegateImpl.initWithOwner = function (owner) {
-        var impl = UIScrollViewDelegateImpl.new();
+    UIScrollViewDelegateSwiper.initWithOwner = function (owner) {
+        var impl = UIScrollViewDelegateSwiper.new();
         impl._owner = owner;
         impl._offsetX = 0;
         impl._currentIndex = 0;
@@ -43,7 +43,7 @@ var UIScrollViewDelegateImpl = (function (_super) {
         return impl;
     };
     // 开始滚动视图
-    UIScrollViewDelegateImpl.prototype.scrollViewWillBeginDragging = function (sv) {
+    UIScrollViewDelegateSwiper.prototype.scrollViewWillBeginDragging = function (sv) {
         //console.log("开始滚动视图");
         var owner = this._owner.get();
         if (!owner) {
@@ -69,8 +69,25 @@ var UIScrollViewDelegateImpl = (function (_super) {
             });
         }
     };
+    UIScrollViewDelegateSwiper.prototype.scrollViewDidScroll = function (sv) {
+        var owner = this._owner.get();
+        if (!owner) {
+            return;
+        }
+        if (owner) {
+            var scrollableWidth = Math.max(0, sv.contentSize.width - sv.bounds.size.width);
+            this._slidesCount = Math.round(scrollableWidth/platformModule.screen.mainScreen.widthDIPs) + 1;
+            owner.notify({
+                object: owner,
+                eventName: "scroll",
+                scrollX: owner.horizontalOffset,
+                scrollY: owner.verticalOffset,
+                slidesCount: this._slidesCount
+            });
+        }
+    };
     // 滚动视图减速完成，滚动将停止时，调用该方法。一次有效滑动，只执行一次。
-    UIScrollViewDelegateImpl.prototype.scrollViewDidEndDecelerating = function (sv) {
+    UIScrollViewDelegateSwiper.prototype.scrollViewDidEndDecelerating = function (sv) {
         //console.log("滚动视图减速完成，滚动将停止");
         var owner = this._owner.get();
         //console.log(owner);
@@ -94,7 +111,7 @@ var UIScrollViewDelegateImpl = (function (_super) {
             var newIndex = Math.round(this._offsetX/platformModule.screen.mainScreen.widthDIPs);
             //console.log("newIndex:" + newIndex);
             if(newIndex === lastIndex){ // index没有改变
-                console.log("index 没有改变");
+                //console.log("index 没有改变");
                 owner.notify({
                     object: owner,
                     eventName: "cancell",
@@ -103,7 +120,7 @@ var UIScrollViewDelegateImpl = (function (_super) {
                 });
             }else{// index 有改变
                 this._currentIndex = newIndex;
-                console.log("index 有改变");
+                //console.log("index 有改变");
                 owner.notify({
                     object: owner,
                     eventName: "change",
@@ -123,8 +140,8 @@ var UIScrollViewDelegateImpl = (function (_super) {
             }
         }
     };
-    UIScrollViewDelegateImpl.ObjCProtocols = [UIScrollViewDelegate];
-    return UIScrollViewDelegateImpl;
+    UIScrollViewDelegateSwiper.ObjCProtocols = [UIScrollViewDelegate];
+    return UIScrollViewDelegateSwiper;
 }(NSObject));
 var SwiperContainer = (function (_super) {
     __extends(SwiperContainer, _super);
@@ -139,7 +156,7 @@ var SwiperContainer = (function (_super) {
         this._scroll.decelerationRate = 0.0; // 惯性加速度最小，滑动阻力最大
     }
     SwiperContainer.prototype.attachNative = function () {
-        this._delegate = UIScrollViewDelegateImpl.initWithOwner(new WeakRef(this));
+        this._delegate = UIScrollViewDelegateSwiper.initWithOwner(new WeakRef(this));
         this._scroll.delegate = this._delegate;
     };
     SwiperContainer.prototype.dettachNative = function () {

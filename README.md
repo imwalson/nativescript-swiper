@@ -80,6 +80,11 @@ There is a discuss about this question: [TabView without the tabs](http://stacko
      + eventName : The name of the event.
      + currentIndex : The current index of the slide (start from 0).
      + slidesCount : The count of all the slides.    
+* scroll - the SwiperContainer is scroll (will fire many times)
+     + object : The Observable instance that has raised the event.
+     + eventName : The name of the event.
+     + scrollX : The horizontal offset of the SwiperContainer ScrollView.
+     + slidesCount : The count of all the slides.       
 
 
 ### work with Repeater

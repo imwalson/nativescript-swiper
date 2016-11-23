@@ -24,14 +24,14 @@ var SwiperContainer = (function (_super) {
     });
     SwiperContainer.prototype.addEventListener = function (arg, callback, thisArg) {
         _super.prototype.addEventListener.call(this, arg, callback, thisArg);
-        if ( arg === SwiperContainer.startEvent || arg === SwiperContainer.finishEvent || arg === SwiperContainer.changeEvent || arg === SwiperContainer.cancellEvent) {
+        if ( arg === SwiperContainer.scrollEvent || arg === SwiperContainer.startEvent || arg === SwiperContainer.finishEvent || arg === SwiperContainer.changeEvent || arg === SwiperContainer.cancellEvent) {
             this._scrollChangeCount++;
             this.attach();
         }
     };
     SwiperContainer.prototype.removeEventListener = function (arg, callback, thisArg) {
         _super.prototype.addEventListener.call(this, arg, callback, thisArg);
-        if ( arg === SwiperContainer.startEvent || arg === SwiperContainer.finishEvent || arg === SwiperContainer.changeEvent || arg === SwiperContainer.cancellEvent) {
+        if ( arg === SwiperContainer.scrollEvent || arg === SwiperContainer.startEvent || arg === SwiperContainer.finishEvent || arg === SwiperContainer.changeEvent || arg === SwiperContainer.cancellEvent) {
             this._scrollChangeCount--;
             this.dettach();
         }
@@ -126,6 +126,7 @@ var SwiperContainer = (function (_super) {
     SwiperContainer.cancellEvent = "cancell";
     SwiperContainer.changeEvent = "change";
     SwiperContainer.finishEvent = "finish";
+    SwiperContainer.scrollEvent = "scroll";
     return SwiperContainer;
 }(contentView.ContentView));
 exports.SwiperContainer = SwiperContainer;
